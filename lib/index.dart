@@ -110,6 +110,9 @@ class _IndexState extends State<Index> {
                 )
               ],
             ),
+            SizedBox(
+              height: 50,
+            ),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
