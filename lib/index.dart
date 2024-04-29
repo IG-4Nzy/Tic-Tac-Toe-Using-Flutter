@@ -216,7 +216,7 @@ class _IndexState extends State<Index> {
               ],
             ),
             SizedBox(
-              height: 20,
+              height: 90,
             ),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
@@ -233,7 +233,7 @@ class _IndexState extends State<Index> {
                     child: Text(
                       'New Game',
                       style: TextStyle(
-                        color: const Color.fromARGB(255, 255, 255, 255),
+                        color: Color.fromARGB(255, 3, 3, 3),
                       ),
                     ),
                   ),
