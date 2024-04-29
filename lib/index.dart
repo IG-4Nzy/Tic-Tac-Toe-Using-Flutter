@@ -9,7 +9,7 @@ class Index extends StatefulWidget {
 
 class _IndexState extends State<Index> {
   String winner = '';
-  String player = 'player1';
+  String player = 'PLAYER1';
   int p1 = 0;
   int p2 = 0;
   String status = 'False';
@@ -22,7 +22,7 @@ class _IndexState extends State<Index> {
   @override
   Widget build(BuildContext context) {
     double screenSize = MediaQuery.of(context).size.width;
-    double width = screenSize / 3 - 5;
+    double width = screenSize / 3 - 30;
     return Scaffold(
       backgroundColor: Color.fromARGB(255, 36, 36, 36),
       appBar: AppBar(
@@ -80,11 +80,11 @@ class _IndexState extends State<Index> {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Text(
-                  status == 'False' ? 'Your Turn' : '',
+                  status == 'False' ? 'Your turn' : '',
                   style: TextStyle(
-                    fontSize: 32,
+                    fontSize: 20,
                     fontWeight: FontWeight.bold,
-                    color: player == 'player1' ? Colors.red : Colors.blue,
+                    color: player == 'PLAYER1' ? Colors.red : Colors.blue,
                   ),
                 )
               ],
@@ -95,8 +95,8 @@ class _IndexState extends State<Index> {
                 Text(
                   winner != '' && winner != 'draw' ? '$winner WON' : '',
                   style: TextStyle(
-                    color: winner == 'player1' ? Colors.red : Colors.blue,
-                    fontSize: 42,
+                    color: winner == 'PLAYER1' ? Colors.red : Colors.blue,
+                    fontSize: 25,
                     fontWeight: FontWeight.bold,
                   ),
                 ),
@@ -104,7 +104,7 @@ class _IndexState extends State<Index> {
                   winner != '' && winner == 'draw' ? 'DRAW' : '',
                   style: TextStyle(
                     color: Colors.green,
-                    fontSize: 42,
+                    fontSize: 25,
                     fontWeight: FontWeight.bold,
                   ),
                 )
@@ -118,7 +118,7 @@ class _IndexState extends State<Index> {
                     'Player X',
                     style: TextStyle(
                       color: const Color.fromARGB(255, 250, 0, 0),
-                      fontSize: 24,
+                      fontSize: 20,
                       fontWeight: FontWeight.bold,
                     ),
                   ),
@@ -129,7 +129,7 @@ class _IndexState extends State<Index> {
                     'Player O',
                     style: TextStyle(
                       color: Color.fromARGB(255, 0, 17, 255),
-                      fontSize: 24,
+                      fontSize: 20,
                       fontWeight: FontWeight.bold,
                     ),
                   ),
@@ -146,7 +146,7 @@ class _IndexState extends State<Index> {
                         '$p1',
                         style: TextStyle(
                           color: Colors.white,
-                          fontSize: 42,
+                          fontSize: 20,
                           fontWeight: FontWeight.bold,
                         ),
                       ),
@@ -163,7 +163,7 @@ class _IndexState extends State<Index> {
                         '$p2',
                         style: TextStyle(
                           color: Colors.white,
-                          fontSize: 42,
+                          fontSize: 20,
                           fontWeight: FontWeight.bold,
                         ),
                       ),
@@ -200,7 +200,7 @@ class _IndexState extends State<Index> {
                             child: Text(
                               boxes[i][j],
                               style: TextStyle(
-                                fontSize: 100,
+                                fontSize: 42,
                                 color: boxes[i][j] == 'X'
                                     ? Colors.red
                                     : Color.fromARGB(255, 17, 0, 255),
@@ -246,12 +246,12 @@ class _IndexState extends State<Index> {
   void MakeMove(int i, int j) {
     if (status != 'True' && boxes[i][j].isEmpty) {
       setState(() {
-        if (player == 'player1') {
+        if (player == 'PLAYER1') {
           boxes[i][j] = 'X';
-          player = 'player2';
+          player = 'PLAYER2';
         } else {
           boxes[i][j] = 'O';
-          player = 'player1';
+          player = 'PLAYER1';
         }
         calculate(i, j);
       });
@@ -265,11 +265,11 @@ class _IndexState extends State<Index> {
           boxes[row][0] != '') {
         setState(() {
           if (boxes[row][0] == 'X') {
-            winner = 'player1';
+            winner = 'PLAYER1';
             status = 'True';
             p1++;
           } else {
-            winner = 'player2';
+            winner = 'PLAYER2';
             status = 'True';
             p2++;
           }
@@ -283,11 +283,11 @@ class _IndexState extends State<Index> {
           boxes[0][col] != '') {
         setState(() {
           if (boxes[col][0] == 'X') {
-            winner = 'player1';
+            winner = 'PLAYER1';
             status = 'True';
             p1++;
           } else {
-            winner = 'player2';
+            winner = 'PLAYER2';
             status = 'True';
             p2++;
           }
@@ -300,11 +300,11 @@ class _IndexState extends State<Index> {
       if (boxes[1][1] != '') {
         setState(() {
           if (boxes[1][1] == 'X') {
-            winner = 'player1';
+            winner = 'PLAYER1';
             status = 'True';
             p1++;
           } else {
-            winner = 'player2';
+            winner = 'PLAYER2';
             status = 'True';
             p2++;
           }
@@ -337,7 +337,7 @@ class _IndexState extends State<Index> {
         }
       }
       winner = '';
-      player = 'player1';
+      player = 'PLAYER1';
       status = 'False';
     });
   }
@@ -381,7 +381,7 @@ class _IndexState extends State<Index> {
                               }
                             }
                             winner = '';
-                            player = 'player1';
+                            player = 'PLAYER1';
                             p1 = 0;
                             p2 = 0;
                             status = 'False';
