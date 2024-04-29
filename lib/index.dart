@@ -338,8 +338,6 @@ class _IndexState extends State<Index> {
       }
       winner = '';
       player = 'player1';
-      p1 = 0;
-      p2 = 0;
       status = 'False';
     });
   }
