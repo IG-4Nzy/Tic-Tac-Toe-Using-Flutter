@@ -24,6 +24,8 @@ class Page extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    double screenSize = MediaQuery.of(context).size.width;
+    double width = screenSize / 2;
     return Scaffold(
         body: Container(
       decoration: BoxDecoration(
@@ -39,7 +41,12 @@ class Page extends StatelessWidget {
           children: [
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
-              children: [Image.asset('assets/logo.png')],
+              children: [
+                Image.asset(
+                  'assets/logo.png',
+                  width: width,
+                )
+              ],
             ),
             SizedBox(
               height: 42,
